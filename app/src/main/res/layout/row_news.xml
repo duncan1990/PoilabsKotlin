@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/ivThumbnail"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:color/darker_gray"
+            tools:ignore="ContentDescription"/>
+
+        <TextView
+            android:id="@+id/tvAuthorName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:lines="2"
+            android:includeFontPadding="false"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivThumbnail"
+            tools:text="Orhan Pamuk" />
+
+        <TextView
+            android:id="@+id/tvArticleTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:textColor="@android:color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tvAuthorName"
+            app:layout_constraintHorizontal_bias="0.58"
+            app:layout_constraintStart_toStartOf="@+id/tvAuthorName"
+            app:layout_constraintTop_toBottomOf="@+id/tvAuthorName"
+            app:layout_constraintVertical_bias="0.01999998"
+            tools:text="Warara afdadaoo adasdas" />
+
+        <TextView
+            android:id="@+id/tvPublishedDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="textEnd"
+            android:textColor="@color/colorRedBold"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/tvArticleTitle"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tvArticleTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvArticleTitle"
+            tools:text="22.02.1990" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
