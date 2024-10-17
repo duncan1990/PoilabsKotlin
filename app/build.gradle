@@ -2,6 +2,8 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -23,6 +25,10 @@ android {
         }
     }
 
+    buildFeatures {
+        viewBinding = true
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -41,6 +47,9 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:$constraintLayoutVersion")
     implementation("androidx.recyclerview:recyclerview:$recyclerViewVersion")
     implementation("androidx.cardview:cardview:$cardViewVersion")
+    implementation 'androidx.navigation:navigation-fragment:2.8.2'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.8.2'
 
     testImplementation("junit:junit:$junitVersion")
     testImplementation("org.mockito:mockito-core:$mockitoVersion")

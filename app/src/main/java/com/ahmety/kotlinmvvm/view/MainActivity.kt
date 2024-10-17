@@ -7,14 +7,35 @@ import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ahmety.kotlinmvvm.di.Injection
 import com.ahmety.kotlinmvvm.model.Article
 import com.ahmety.kotlinmvvm.viewmodel.NewsViewModel
 import com.ahmety.poilabscase.R
+import com.ahmety.poilabscase.databinding.ActivityMainBinding
 
-private const val TAG = "CONSOLE"
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val binding: ActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        val navHostFragment: NavHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController: NavController = navHostFragment.navController
+
+        /*val appBarConfiguration: AppBarConfiguration = AppBarConfiguration(navController.graph)
+        binding.toolbar.setupWithNavController(navController, appBarConfiguration)*/
+
+    }
+}
+
+/*private const val TAG = "CONSOLE"
 class MainActivity : AppCompatActivity() {
 
     private val viewModel by viewModels<NewsViewModel> {
@@ -93,4 +114,4 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
         Injection.destroy()
     }
-}
+}*/
