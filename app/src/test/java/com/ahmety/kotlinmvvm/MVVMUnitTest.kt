@@ -42,12 +42,6 @@ class MVVMUnitTest {
     private lateinit var newsEmptyList: List<Article>
     private lateinit var newsList: List<Article>
 
-    /**
-    //https://jeroenmols.com/blog/2019/01/17/livedatajunit5/
-    //Method getMainLooper in android.os.Looper not mocked
-
-    java.lang.IllegalStateException: operationCallbackCaptor.capture() must not be null
-     */
     @get:Rule
     val rule = InstantTaskExecutorRule()
 
@@ -64,7 +58,7 @@ class MVVMUnitTest {
     }
 
     @Test
-    fun `retrieve museums with ViewModel and Repository returns empty data`() {
+    fun `retrieve news with ViewModel and Repository returns empty data`() {
         with(viewModel) {
             loadNews()
             isViewLoading.observeForever(isViewLoadingObserver)
@@ -81,7 +75,7 @@ class MVVMUnitTest {
     }
 
     @Test
-    fun `retrieve museums with ViewModel and Repository returns full data`() {
+    fun `retrieve news with ViewModel and Repository returns full data`() {
         with(viewModel) {
             loadNews()
             isViewLoading.observeForever(isViewLoadingObserver)
@@ -96,7 +90,7 @@ class MVVMUnitTest {
     }
 
     @Test
-    fun `retrieve museums with ViewModel and Repository returns an error`() {
+    fun `retrieve news with ViewModel and Repository returns an error`() {
         with(viewModel) {
             loadNews()
             isViewLoading.observeForever(isViewLoadingObserver)

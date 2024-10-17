@@ -7,8 +7,11 @@ import com.ahmety.kotlinmvvm.data.OperationCallback
 import com.ahmety.kotlinmvvm.model.Article
 import com.ahmety.kotlinmvvm.model.NewsRepository
 import com.ahmety.kotlinmvvm.model.NewsResponse
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class NewsViewModel(private val repository: NewsRepository) : ViewModel() {
+@HiltViewModel
+class NewsViewModel @Inject constructor(private val repository: NewsRepository) : ViewModel() {
 
     private val _news = MutableLiveData<List<Article>>().apply { value = emptyList() }
     val news: LiveData<List<Article>> = _news

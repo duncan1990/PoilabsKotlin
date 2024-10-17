@@ -11,21 +11,23 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ahmety.kotlinmvvm.di.Injection
 import com.ahmety.kotlinmvvm.model.Article
 import com.ahmety.kotlinmvvm.view.news.adapter.NewsAdapter
 import com.ahmety.kotlinmvvm.viewmodel.NewsViewModel
 import com.ahmety.poilabscase.R
 import com.ahmety.poilabscase.databinding.FragmentNewsListBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class NewsListFragment : Fragment() {
 
     private var _binding: FragmentNewsListBinding? = null
     private val binding get() = _binding!!
+    private val viewModel: NewsViewModel by viewModels()
 
-    private val viewModel by viewModels<NewsViewModel> {
+   /* private val viewModel by viewModels<NewsViewModel> {
         Injection.provideViewModelFactory()
-    }
+    }*/
     private var adapter: NewsAdapter? = null
 
     override fun onResume() {
@@ -120,7 +122,7 @@ class NewsListFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-        Injection.destroy()
+        //Injection.destroy()
         adapter = null
     }
 

@@ -1,23 +1,14 @@
 package com.ahmety.kotlinmvvm.view
 
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import android.widget.TextView
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.ahmety.kotlinmvvm.di.Injection
-import com.ahmety.kotlinmvvm.model.Article
-import com.ahmety.kotlinmvvm.viewmodel.NewsViewModel
 import com.ahmety.poilabscase.R
 import com.ahmety.poilabscase.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

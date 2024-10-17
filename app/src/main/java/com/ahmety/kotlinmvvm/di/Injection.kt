@@ -6,6 +6,7 @@ import com.ahmety.kotlinmvvm.model.NewsDataSource
 import com.ahmety.kotlinmvvm.model.NewsRepository
 import com.ahmety.kotlinmvvm.viewmodel.ViewModelFactory
 
+/*
 object Injection {
 
     private var newsDataSource: NewsDataSource? = null
@@ -40,4 +41,4 @@ object Injection {
         newsRepository = null
         newsViewModelFactory = null
     }
-}
+}*/
