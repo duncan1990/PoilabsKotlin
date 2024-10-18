@@ -6,14 +6,13 @@ import androidx.lifecycle.ViewModel
 import com.ahmety.kotlinmvvm.data.OperationCallback
 import com.ahmety.kotlinmvvm.model.Article
 import com.ahmety.kotlinmvvm.model.NewsRepository
-import com.ahmety.kotlinmvvm.model.NewsResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class NewsViewModel @Inject constructor(private val repository: NewsRepository) : ViewModel() {
 
-    private val _news = MutableLiveData<List<Article>>().apply { value = emptyList() }
+    private val _news = MutableLiveData<List<Article>>().apply { postValue(emptyList()) }
     val news: LiveData<List<Article>> = _news
 
     private val _isViewLoading = MutableLiveData<Boolean>()
@@ -25,36 +24,22 @@ class NewsViewModel @Inject constructor(private val repository: NewsRepository) 
     private val _isEmptyList = MutableLiveData<Boolean>()
     val isEmptyList: LiveData<Boolean> = _isEmptyList
 
-    /*
-    If you require that the data be loaded only once, you can consider calling the method
-    "loadNews()" on constructor. Also, if you rotate the screen, the service will not be called.
-
-    init {
-        //loadNews()
-    }
-     */
-
     fun loadNews() {
-        _isViewLoading.value = true
-        repository.fetchNews(object : OperationCallback<NewsResponse> {
+        _isViewLoading.postValue(true)  // postValue kullanıyoruz
+        repository.fetchNews(object : OperationCallback<List<Article>> {
             override fun onError(error: String?) {
-                _isViewLoading.value = false
-                error?.let { e ->
-                    _onMessageError.value = e
-                }
-
+                _isViewLoading.postValue(false)
+                error?.let { e -> _onMessageError.postValue(e) }
             }
 
             override fun onSuccess(data: List<Article>?) {
-                _isViewLoading.value = false
+                _isViewLoading.postValue(false)
                 if (data.isNullOrEmpty()) {
-                    _isEmptyList.value = true
-
+                    _isEmptyList.postValue(true)
                 } else {
-                    _news.value = data
+                    _news.postValue(data)
                 }
             }
         })
     }
-
 }

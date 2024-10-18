@@ -25,9 +25,6 @@ class NewsListFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: NewsViewModel by viewModels()
 
-   /* private val viewModel by viewModels<NewsViewModel> {
-        Injection.provideViewModelFactory()
-    }*/
     private var adapter: NewsAdapter? = null
 
     override fun onResume() {
@@ -36,13 +33,10 @@ class NewsListFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentNewsListBinding.inflate(inflater, container, false)
-        val view = binding.root
-        return view
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -54,9 +48,7 @@ class NewsListFragment : Fragment() {
     private fun setupUI() {
         adapter = NewsAdapter { article ->
             findNavController().navigate(
-                NewsListFragmentDirections.actionNewsListFragmentToArticleDetailFragment(
-                    article
-                )
+                NewsListFragmentDirections.actionNewsListFragmentToArticleDetailFragment(article)
             )
         }
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -65,8 +57,8 @@ class NewsListFragment : Fragment() {
         viewModel.news.observe(viewLifecycleOwner) { articles ->
             adapter?.submitList(articles)
         }
-        setupSearch()
 
+        setupSearch()
     }
 
     private fun setupViewModel() {
@@ -83,19 +75,16 @@ class NewsListFragment : Fragment() {
     }
 
     private val isViewLoadingObserver = Observer<Boolean> {
-        val visibility = if (it) View.VISIBLE else View.GONE
-        binding.progressBar.visibility = visibility
+        binding.progressBar.visibility = if (it) View.VISIBLE else View.GONE
     }
 
     private val onMessageErrorObserver = Observer<Any> {
         binding.layoutError.root.visibility = View.VISIBLE
-        binding.layoutEmpty.root.visibility = View.GONE
         binding.layoutError.textViewError.text = getString(R.string.error_text, it)
     }
 
     private val emptyListObserver = Observer<Boolean> {
-        binding.layoutEmpty.root.visibility = View.VISIBLE
-        binding.layoutError.root.visibility = View.GONE
+        binding.layoutEmpty.root.visibility = if (it) View.VISIBLE else View.GONE
     }
 
     private fun setupSearch() {
@@ -122,8 +111,6 @@ class NewsListFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-        //Injection.destroy()
         adapter = null
     }
-
 }

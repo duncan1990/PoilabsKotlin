@@ -1,7 +1,17 @@
 package com.ahmety.kotlinmvvm.data
 
-import com.ahmety.kotlinmvvm.model.Article
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-data class News(val status: Int?, val msg: String?, val data: List<Article>?) {
-    fun isSuccess(): Boolean = (status == 200)
-}
+@Entity(tableName = "articles")
+data class ArticleEntity(
+    @PrimaryKey(autoGenerate = true)
+    val id: Int = 0, // Auto-generated primary key
+    val author: String?,
+    val title: String?,
+    val description: String?,
+    val url: String?,
+    val urlToImage: String?,
+    val publishedAt: String?,
+    val content: String?
+)

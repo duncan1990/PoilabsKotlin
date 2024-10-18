@@ -1,6 +1,7 @@
 package com.ahmety.kotlinmvvm.data
 
 import com.ahmety.kotlinmvvm.model.NewsResponse
+import com.ahmety.poilabscase.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
@@ -37,7 +38,7 @@ object ApiClient {
     }
 
     interface ServicesApiInterface {
-        @GET("/v2/everything?q=android&apiKey=0b3d0f82db7e4381ae1aafbb44a280d5")
+        @GET("/v2/everything?q=android&apiKey=${BuildConfig.API_KEY}")
         fun getNews(): Call<NewsResponse>
     }
 }

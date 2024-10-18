@@ -3,6 +3,7 @@ package com.ahmety.kotlinmvvm
 import android.app.Application
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
+import com.ahmety.kotlinmvvm.data.ArticleDao
 import com.ahmety.kotlinmvvm.data.OperationCallback
 import com.ahmety.kotlinmvvm.model.Article
 import com.ahmety.kotlinmvvm.model.NewsDataSource
@@ -24,6 +25,9 @@ class MVVMUnitTest {
 
     @Mock
     private lateinit var newsDataSource: NewsDataSource
+
+    @Mock
+    private lateinit var articleDao: ArticleDao
 
     @Mock
     private lateinit var context: Application
@@ -50,7 +54,7 @@ class MVVMUnitTest {
         MockitoAnnotations.initMocks(this)
         `when`(context.applicationContext).thenReturn(context)
 
-        repository = NewsRepository(newsDataSource)
+        repository = NewsRepository(newsDataSource, articleDao)
         viewModel = NewsViewModel(repository)
 
         mockData()

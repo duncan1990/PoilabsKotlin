@@ -1,19 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:fillViewport="true">
 
-    <ImageView
-        android:id="@+id/ivArticle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:adjustViewBounds="true"
-        tools:ignore="ContentDescription"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tvAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@color/colorBlack"
+            android:padding="10dp"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp"
+            android:fontFamily="@font/roboto_regular"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.12"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Andy Jackson" />
+
+        <TextView
+            android:id="@+id/tvPublishedDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:textColor="@color/colorBlack"
+            android:fontFamily="@font/roboto_black"
+            app:layout_constraintBottom_toBottomOf="@id/tvAuthor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@id/tvAuthor"
+            app:layout_constraintTop_toTopOf="@+id/tvAuthor"
+            tools:text="Oct 17, 2024 12:41 PM" />
+
+        <TextView
+            android:id="@+id/tvMainTopic"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="24dp"
+            android:textColor="@color/colorBlack"
+            android:textSize="28sp"
+            android:fontFamily="@font/roboto_bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvAuthor"
+            tools:text="DHS Warns Law Enforcement Election Deniers May Attempt to Bomb Drop Boxes" />
+
+        <ImageView
+            android:id="@+id/ivArticle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvMainTopic"
+            tools:ignore="ContentDescription"
+            tools:srcCompat="@drawable/ic_launcher_background" />
+
+        <TextView
+            android:id="@+id/tvArticle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="12sp"
+            android:layout_marginHorizontal="8dp"
+            android:textColor="@color/colorBlack"
+            android:fontFamily="@font/roboto_regular"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivArticle"
+            tools:text="The cryptocurrency community has firmly rejected the theory. In the film, Bitcoin ambassador Samson Mow says “Peter was ruled out a long time ago.” Hoback says suggesting Todd is Satoshi would get you laughed off of every major Bitcoin forum in the world. The morning after the documentary aired, that’s indeed what’s happening.
+
+Articles are spreading across the cryptocurrency world calling the documentary a poorly researched hatchet job. Todd has gone on record with CNN, saying he’s not Satoshi and complaining that he wasn’t allowed to screen the film before its release. “He’s had over a year to prepare for this moment,” Hoback told CNN. “Peter’s got next-level game theory. His reaction doesn’t surprise me at all.”" />
+
+        <TextView
+            android:id="@+id/tvUrl"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/u_url_to_read_full_article_u"
+            android:textColor="@color/colorRedBold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvArticle" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

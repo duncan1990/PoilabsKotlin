@@ -8,11 +8,9 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.ahmety.kotlinmvvm.extension.loadImagesAsThumbnail
 import com.ahmety.kotlinmvvm.model.Article
+import com.ahmety.kotlinmvvm.utilities.formatDate
 import com.ahmety.poilabscase.R
 import com.ahmety.poilabscase.databinding.RowNewsBinding
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.TimeZone
 
 class NewsAdapter(
     private val onItemClick: (Article) -> Unit
@@ -37,16 +35,12 @@ class NewsAdapter(
             binding.tvAuthorName.text = item.author
             binding.tvArticleTitle.text = item.title
 
-            val timeFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'")
-            timeFormat.timeZone = TimeZone.getTimeZone("UTC")
             item.publishedAt?.let { publishedAtTime ->
-                val date: Date? = timeFormat.parse(publishedAtTime)
-                val desiredFormat = SimpleDateFormat("dd/MM/yyyy")
-                date?.let { dateTime ->
-                    val formattedDate = desiredFormat.format(dateTime)
-                    binding.tvPublishedDate.text =
-                        binding.root.context.getString(R.string.published_time, formattedDate)
-                }
+                binding.tvPublishedDate.text =
+                    binding.root.context.getString(
+                        R.string.published_time,
+                        publishedAtTime.formatDate()
+                    )
             }
 
             item.urlToImage?.let { imgUrl ->

@@ -1,9 +1,10 @@
 <resources>
-    <string name="app_name">KotlinMVVM</string>
-    <string name="empty_list">No museums found!</string>
+    <string name="app_name">NewsApp</string>
+    <string name="empty_list">No news found!</string>
     <string name="an_error_occurred">An error occurred</string>
     <string name="published_time">Published At: %s</string>
     <string name="error_text">Error %s</string>
     <string name="search_news">Search News…</string>
     <string name="news">News</string>
+    <string name="u_url_to_read_full_article_u">Url to read full article</string>
 </resources>
