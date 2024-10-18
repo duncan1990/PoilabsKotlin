@@ -61,9 +61,10 @@ dependencies {
 
     testImplementation("junit:junit:$junitVersion")
     testImplementation("org.mockito:mockito-core:$mockitoVersion")
-    testImplementation("android.arch.core:core-testing:$archTestingVersion")
-    testImplementation 'androidx.arch.core:core-testing:2.1.0'
+    testImplementation 'androidx.arch.core:core-testing:2.2.0'
     androidTestImplementation "androidx.arch.core:core-testing:$archTestingVersion"
+    androidTestImplementation 'androidx.fragment:fragment-testing:1.8.4'
+    testImplementation "io.mockk:mockk:1.12.0"
 
     androidTestImplementation("androidx.test:runner:$runnerVersion")
     androidTestImplementation("androidx.test.espresso:espresso-core:$espressoVersion")

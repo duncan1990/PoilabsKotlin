@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/newsListFragment"
-        android:name="com.ahmety.kotlinmvvm.view.news.NewsListFragment"
+        android:name="com.ahmety.newsapp.view.news.NewsListFragment"
         android:label="NewsListFragment"
         tools:layout="@layout/fragment_news_list">
         <action
@@ -16,11 +16,11 @@
     </fragment>
     <fragment
         android:id="@+id/articleDetailFragment"
-        android:name="com.ahmety.kotlinmvvm.view.articledetail.ArticleDetailFragment"
+        android:name="com.ahmety.newsapp.view.articledetail.ArticleDetailFragment"
         android:label="ArticleDetailFragment"
         tools:layout="@layout/fragment_article_detail">
         <argument
             android:name="article"
-            app:argType="com.ahmety.kotlinmvvm.model.Article" />
+            app:argType="com.ahmety.newsapp.model.Article" />
     </fragment>
 </navigation>
