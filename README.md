@@ -1,0 +1,6 @@
+-Kotlin
+-MVVM, Live Data, Coroutine.
+-Dagger Hilt, Glide, Retrofit.
+-Unit Test, Espresso Test, Mockito library.
+-Navigation Component
+-News Api-Api Key:0b3d0f82db7e4381ae1aafbb44a280d5
