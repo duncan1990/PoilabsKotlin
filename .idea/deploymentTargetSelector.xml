@@ -13,10 +13,10 @@
         </DropdownSelection>
         <DialogSelection />
       </SelectionState>
-      <SelectionState runConfigName="testEmptyStateVisibility()">
+      <SelectionState runConfigName="ExampleInstrumentedTest$StringExtensionsInstrumentedTest">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="ExampleInstrumentedTest$StringExtensionsInstrumentedTest">
+      <SelectionState runConfigName="testProgressBarVisibilityOnLoading()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>

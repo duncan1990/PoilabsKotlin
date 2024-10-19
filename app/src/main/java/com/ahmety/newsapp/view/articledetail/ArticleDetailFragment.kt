@@ -11,6 +11,7 @@ import androidx.navigation.fragment.navArgs
 import com.ahmety.newsapp.extension.doUnderline
 import com.ahmety.newsapp.extension.loadImages
 import com.ahmety.newsapp.utilities.formatDate
+import com.ahmety.newsapp.utilities.formatDateWithHour
 import com.ahmety.poilabscase.R
 import com.ahmety.poilabscase.databinding.FragmentArticleDetailBinding
 
@@ -36,12 +37,13 @@ class ArticleDetailFragment : Fragment() {
             binding.ivArticle.loadImages(img)
         }
         binding.tvAuthor.text = args.article.author
-        binding.tvPublishedDate.text = args.article.publishedAt?.formatDate()
+        binding.tvPublishedDate.text = args.article.publishedAt?.formatDateWithHour()
         args.article.urlToImage?.let { img ->
             binding.ivArticle.loadImages(img)
         }
         binding.tvUrl.text = getString(R.string.u_url_to_read_full_article_u).doUnderline()
         binding.tvMainTopic.text = args.article.title
+        binding.tvShortInfo.text = args.article.description
         binding.tvUrl.setOnClickListener {
             startActivity(Intent(
                 Intent.ACTION_VIEW,

@@ -31,7 +31,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/colorRedBold"
             android:fontFamily="@font/roboto_black"
             app:layout_constraintBottom_toBottomOf="@id/tvAuthor"
             app:layout_constraintEnd_toEndOf="parent"
@@ -55,6 +55,22 @@
             app:layout_constraintTop_toBottomOf="@+id/tvAuthor"
             tools:text="DHS Warns Law Enforcement Election Deniers May Attempt to Bomb Drop Boxes" />
 
+        <TextView
+            android:id="@+id/tvShortInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvMainTopic"
+            tools:text="DHS Warns Law Enforcement Election Deniers May Attempt to Bomb Drop Boxes" />
+
+
         <ImageView
             android:id="@+id/ivArticle"
             android:layout_width="0dp"
@@ -64,7 +80,7 @@
             android:scaleType="fitXY"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvMainTopic"
+            app:layout_constraintTop_toBottomOf="@id/tvShortInfo"
             tools:ignore="ContentDescription"
             tools:srcCompat="@drawable/ic_launcher_background" />
 

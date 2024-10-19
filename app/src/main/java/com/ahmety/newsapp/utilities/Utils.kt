@@ -18,11 +18,15 @@ fun String.formatDate(): String {
     return formattedDate
 }
 
-/*
-fun openWeb(url: String){
-    val urlIntent = Intent(
-        Intent.ACTION_VIEW,
-        Uri.parse(args.article.url)
-    )
-    startActivity(urlIntent)
-}*/
+@SuppressLint("SimpleDateFormat")
+fun String.formatDateWithHour(): String {
+    var formattedDate = ""
+    val timeFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'")
+    timeFormat.timeZone = TimeZone.getTimeZone("UTC")
+    val date: Date? = timeFormat.parse(this)
+    val desiredFormat = SimpleDateFormat("dd/MM/yyyy HH:MM")
+    date?.let { dateTime ->
+        formattedDate = desiredFormat.format(dateTime)
+    }
+    return formattedDate
+}
